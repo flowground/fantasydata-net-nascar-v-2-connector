@@ -1,0 +1,138 @@
+{
+    "title": "NASCAR v2",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/fantasydata.net/nascar-v2/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://api.fantasydata.net/nascar/v2",
+                    "https://api.fantasydata.net/nascar/v2",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "apiKeyHeader": {
+                "label": "Ocp-Apim-Subscription-Key (apiKeyHeader)",
+                "viewClass": "TextFieldView"
+            },
+            "apiKeyQuery": {
+                "label": "subscription-key (apiKeyQuery)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "DriverRaceProjectionsEntryList": {
+            "main": "./lib/actions/DriverRaceProjectionsEntryList.js",
+            "title": "Driver Race Projections (Entry List)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DriverRaceProjectionsEntryList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DriverDetails": {
+            "main": "./lib/actions/DriverDetails.js",
+            "title": "Driver Details",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DriverDetails.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Drivers": {
+            "main": "./lib/actions/Drivers.js",
+            "title": "Drivers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Drivers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RaceResults": {
+            "main": "./lib/actions/RaceResults.js",
+            "title": "Race Results",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RaceResults.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RacesSchedule": {
+            "main": "./lib/actions/RacesSchedule.js",
+            "title": "Races / Schedule",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RacesSchedule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Series": {
+            "main": "./lib/actions/Series.js",
+            "title": "Series",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Series.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
